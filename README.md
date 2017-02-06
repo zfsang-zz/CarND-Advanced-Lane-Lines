@@ -29,7 +29,7 @@ This project requires Python 3.5 and the following Python libraries installed:
 
 Implementation details
 ---
-### 1. Undistort camera image and apply perspective transform to get a bird-eye view of the the road.
+### 1. Undistorted camera image and apply perspective transform to get a bird-eye view of the the road.
 
 The easiest way to do this is to investigate an image where the lane lines are straight, and find four points lying along the lines that, after perspective transform, make the lines look straight and vertical from a bird's eye view perspective(top down view).
 
@@ -39,14 +39,14 @@ Using HSV color space instead of RGB is easier for us to identify yellow and whi
 
 ### 3. Apply Sobel filters to get image with potential line/edges
 
-The Sobel operator is at the heart of the Canny edge detection algorithm.  Here we use the Sobel operator to an image is a way of taking the derivative of the image in the x or y direction. 
+The Sobel operator is at the heart of the Canny edge detection algorithm.  Here we use the Sobel operator to an image is a way of taking the derivative of the image in the x or y direction.
 
 ### 4. Combine binary masks from Sobel filters and HSV color masks
 
-Combining serveal masks from different sources (color, Sobel, thresholding) with different weight togather allow us to extract more useful lane image information while filtering out unrelavent parts.
+Combining several masks from different sources (color, Sobel, thresholding) with different weight together allow us to extract more useful lane image information while filtering out irrelevant parts.
 
 
-### 5. Apply polynomial regression to compute the left and right lanes (identify the peak of historgram horizontally from button up)
+### 5. Apply polynomial regression to compute the left and right lanes (identify the peak of histogram horizontally from button up)
 Fit a second order polynomial to get the curving lane approximation.
 $$f(y) = Ay^2 +By +C$$
 
@@ -54,15 +54,15 @@ $$f(y) = Ay^2 +By +C$$
 The equation for radius of curvature is based on the best fitted second order polynomial model.
 $$R_{curve} = \frac{(1+(2Ay+B^2)^{3/2})}{|2A|}$$
 
-### 7. Build pipeline to process the live stream of road videos from the front camera of the car to identify and analyze lane in real time 
+### 7. Build pipeline to process the live stream of road videos from the front camera of the car to identify and analyze lane in real time
 
 ![img](output_images/Final_output.png)
 
 
-## Reflection 
-1. Thresholds are hard coded arbitrariy, which can be improved by assigning dynamic values by learning the image/video via machine learning algorithms
-2. The pipeline does not work well for more complicated images with varying weather/road/lighting conditions.  Adding smoothing and image propocessing steps may be helpful.
-3. More real-time information may be added for analysis/dignosis purpose.
+## Reflection
+1. Thresholds are hard coded arbitrary, which can be improved by assigning dynamic values by learning the image/video via machine learning algorithms
+2. The pipeline does not work well for more complicated images with varying weather/road/lighting conditions.  Adding smoothing and image processing steps may be helpful.
+3. More real-time information may be added for analysis/diagnosis purpose.
 
 
 
@@ -72,7 +72,3 @@ Reference
 - https://medium.com/@vivek.yadav/robust-lane-finding-using-advanced-computer-vision-techniques-mid-project-update-540387e95ed3#.xczay6o2c
 - https://github.com/kunfengchen/carnd-p4
 - https://github.com/Dalaska/CarND-P4-Advance-Lane-Lines
-
-
-
-
