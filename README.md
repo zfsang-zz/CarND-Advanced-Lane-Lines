@@ -55,9 +55,11 @@ The equation for radius of curvature is based on the best fitted second order po
 R_{curve} = \frac{(1+(2Ay+B^2)^{3/2})}{|2A|}  
 
 ### 7. Wrap the fitted rectified image back onto the original image and plot to identify the lane boundaries
-
+Scale the fitted polynomial line in bird view and put it back to the front-camera image, where the green shaded area denotes the current found lane. 
 
 ### 8. Build pipeline to process the live stream of road videos from the front camera of the car to identify and analyze lane in real time
+Basically  all the procedures (1-7) described above are combined to build a lane-finding pipeline to detect the lane in real time video stream.
+
 
 ### Results
 The final output lane finding image includes the following information:
@@ -65,7 +67,7 @@ The final output lane finding image includes the following information:
 - Current curvature of the lane based on real-time lane fitting and moving average smooth
 - Current distance from the center of the car to the center of the lane
 
-![img](output_images/pipeline_out.jpg)  
+![img](output_images/pipeline_output.jpg)
 Video Demo: https://youtu.be/cfjSrEUsKJk  
 
 ## Reflection
@@ -81,3 +83,4 @@ Reference
 - https://medium.com/@vivek.yadav/robust-lane-finding-using-advanced-computer-vision-techniques-mid-project-update-540387e95ed3#.xczay6o2c
 - https://github.com/kunfengchen/carnd-p4
 - https://github.com/Dalaska/CarND-P4-Advance-Lane-Lines
+- http://www.intmath.com/applications-differentiation/8-radius-curvature.php
