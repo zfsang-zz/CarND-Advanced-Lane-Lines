@@ -48,16 +48,25 @@ Combining several masks from different sources (color, Sobel, thresholding) with
 
 ### 5. Apply polynomial regression to compute the left and right lanes (identify the peak of histogram horizontally from button up)
 Fit a second order polynomial to get the curving lane approximation.
-$$f(y) = Ay^2 +By +C$$
+f(y) = Ay^2 +By +C  
 
 ### 6. Calculate curvature and lane fitting, and plot them back to the original camera image
 The equation for radius of curvature is based on the best fitted second order polynomial model.
-$$R_{curve} = \frac{(1+(2Ay+B^2)^{3/2})}{|2A|}$$
+R_{curve} = \frac{(1+(2Ay+B^2)^{3/2})}{|2A|}  
 
-### 7. Build pipeline to process the live stream of road videos from the front camera of the car to identify and analyze lane in real time
+### 7. Wrap the fitted rectified image back onto the original image and plot to identify the lane boundaries
 
-![img](output_images/Final_output.png)
 
+### 8. Build pipeline to process the live stream of road videos from the front camera of the car to identify and analyze lane in real time
+
+### Results
+The final output lane finding image includes the following information:
+- Detected region of lane on the freeway based on color and gradient thresholding (denoted in green shade)
+- Current curvature of the lane based on real-time lane fitting and moving average smooth
+- Current distance from the center of the car to the center of the lane
+
+![img](output_images/pipeline_output.jpg)
+Video Demo: https://youtu.be/cfjSrEUsKJk  
 
 ## Reflection
 1. Thresholds are hard coded arbitrary, which can be improved by assigning dynamic values by learning the image/video via machine learning algorithms
