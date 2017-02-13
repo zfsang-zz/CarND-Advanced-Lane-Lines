@@ -67,7 +67,8 @@ The final output lane finding image includes the following information:
 - Current curvature of the lane based on real-time lane fitting and moving average smooth
 - Current distance from the center of the car to the center of the lane
 
-![img](output_images/pipeline_out.jpg)
+![img](output_images/pipeline_out.jpg)    
+
 Video Demo: https://youtu.be/cfjSrEUsKJk  
 
 ## Reflection
